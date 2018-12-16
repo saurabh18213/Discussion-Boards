@@ -73,12 +73,9 @@ class PostListView(ListView):
 @login_required
 def reply_topic(request, pk, topic_pk):
     topic = get_object_or_404(Topic, board__pk=pk, pk=topic_pk)
-    print(topic)
-    print('hi')
 
     if request.method == 'POST':
         form = PostForm(request.POST)
-        print('hllo')
 
         if form.is_valid():
             post = form.save(commit=False)
